@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campus Connect — College Leave Management System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Monoton&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ SPLASH SCREEN ============ -->
+<section id="splash" class="screen active">
+  <canvas id="waveCanvas"></canvas>
+  <div class="orbit-ring ring1"></div>
+  <div class="orbit-ring ring2"></div>
+  <div class="orbit-dot"></div>
+  <div class="splash-content">
+    <h1 class="brand-title">
+      <span class="brand-word">CAMPUS</span>
+      <span class="brand-word">CONNECT</span>
+    </h1>
+    <p class="brand-tagline">College Leave Management System</p>
+    <button id="enterCampusBtn" class="enter-btn">Enter Campus</button>
+  </div>
+</section>
+
+<!-- ============ ROLE SELECTION ============ -->
+<section id="roleScreen" class="screen">
+  <div class="role-wrap">
+    <h1 class="brand-title small"><span class="brand-word">CAMPUS</span> <span class="brand-word">CONNECT</span></h1>
+    <p class="screen-sub">Who are you?</p>
+    <div class="role-cards">
+      <button class="role-card" data-role="student">
+        <span class="role-icon">🎓</span>
+        <span class="role-name">Student</span>
+        <span class="role-desc">Apply for leave &amp; track status</span>
+      </button>
+      <button class="role-card" data-role="staff">
+        <span class="role-icon">📚</span>
+        <span class="role-name">Staff</span>
+        <span class="role-desc">Review &amp; forward applications</span>
+      </button>
+      <button class="role-card" data-role="hod">
+        <span class="role-icon">🏛️</span>
+        <span class="role-name">HOD / Dean</span>
+        <span class="role-desc">Approve or reject leave</span>
+      </button>
+      <button class="role-card" data-role="admin">
+        <span class="role-icon">⚙️</span>
+        <span class="role-name">Admin</span>
+        <span class="role-desc">Manage users &amp; reports</span>
+      </button>
+    </div>
+    <button class="link-btn" id="backToSplash">← Back</button>
+  </div>
+</section>
+
+<!-- ============ LOGIN ============ -->
+<section id="loginScreen" class="screen">
+  <div class="auth-wrap">
+    <div class="auth-head">
+      <span id="loginRoleIcon" class="role-icon big">🎓</span>
+      <h2 id="loginRoleTitle">Student Login</h2>
+      <p id="loginRoleHint">Login with your Register Number / Email</p>
+    </div>
+    <form id="loginForm" autocomplete="off">
+      <label for="loginId">Register Number / Email</label>
+      <input type="text" id="loginId" placeholder="" required>
+      <label for="loginPass">Password</label>
+      <input type="password" id="loginPass" required>
+      <p id="loginError" class="form-error"></p>
+      <button type="submit" class="primary-btn">Login</button>
+    </form>
+    <div class="auth-foot">
+      <button class="link-btn" id="forgotBtn">Forgot password?</button>
+      <button class="link-btn" id="registerBtn">New here? Create account</button>
+      <button class="link-btn" id="backToRoles">← Choose another role</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REGISTER (new users) ============ -->
+<section id="registerScreen" class="screen">
+  <div class="auth-wrap wide">
+    <div class="auth-head">
+      <span class="role-icon big">✨</span>
+      <h2>Create Account</h2>
+      <p>Register once — then login anytime with your email or phone number + password.</p>
+    </div>
+    <form id="registerForm" autocomplete="off">
+      <label>I am a</label>
+      <select id="regRole">
+        <option value="student">Student</option>
+        <option value="staff">Staff</option>
+        <option value="hod">HOD / Dean</option>
+      </select>
+      <label>Full name</label>
+      <input type="text" id="regName" required>
+      <div id="regRegWrap">
+        <label id="regRegLabel">Register Number</label>
+        <input type="text" id="regRegno" required>
+      </div>
+      <div id="regYearWrap">
+        <label>Year</label>
+        <select id="regYear">
+          <option>I Year</option><option>II Year</option>
+          <option>III Year</option><option>IV Year</option>
+        </select>
+      </div>
+      <label>Department</label>
+      <input type="text" id="regDept" required>
+      <label>Email</label>
+      <input type="email" id="regEmail" required>
+      <label>Phone number</label>
+      <input type="tel" id="regPhone" maxlength="10" inputmode="numeric" required>
+      <label>Password (minimum 6 characters)</label>
+      <input type="password" id="regPass" required>
+      <label>Confirm password</label>
+      <input type="password" id="regPass2" required>
+      <p id="regError" class="form-error"></p>
+      <button type="submit" class="primary-btn">Create account</button>
+    </form>
+    <div class="auth-foot">
+      <button class="link-btn" id="backToLogin3">← Already have an account? Login</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORGOT PASSWORD ============ -->
+<section id="forgotScreen" class="screen">
+  <div class="auth-wrap">
+    <div class="auth-head">
+      <span class="role-icon big">🔑</span>
+      <h2>Reset Password</h2>
+      <p>A reset link will be sent to your registered email.</p>
+    </div>
+    <form id="forgotForm" autocomplete="off">
+      <label for="forgotEmail">Register Number / Email</label>
+      <input type="text" id="forgotEmail" placeholder="" required>
+      <p id="forgotMsg" class="form-msg"></p>
+      <button type="submit" class="primary-btn">Send reset link</button>
+    </form>
+    <div class="auth-foot">
+      <button class="link-btn" id="backToLogin">← Back to login</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESET PASSWORD (via emailed link) ============ -->
+<section id="resetScreen" class="screen">
+  <div class="auth-wrap">
+    <div class="auth-head">
+      <span class="role-icon big">🔑</span>
+      <h2>Set New Password</h2>
+      <p id="resetForUser"></p>
+    </div>
+    <form id="resetForm" autocomplete="off">
+      <label for="newPass">New Password</label>
+      <input type="password" id="newPass" required>
+      <label for="confirmPass">Confirm Password</label>
+      <input type="password" id="confirmPass" required>
+      <p id="resetMsg" class="form-msg"></p>
+      <button type="submit" class="primary-btn">Update password</button>
+    </form>
+    <div class="auth-foot">
+      <button class="link-btn" id="backToLogin2">← Back to login</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APP (logged in) ============ -->
+<section id="appScreen" class="screen">
+  <header class="app-header">
+    <h1 class="brand-title tiny"><span class="brand-word">CAMPUS</span> <span class="brand-word">CONNECT</span></h1>
+    <div class="header-right">
+      <button id="notifBtn" class="icon-btn">🔔<span id="notifCount" class="badge hidden">0</span></button>
+      <span id="headerUserName" class="header-user"></span>
+      <button id="logoutBtn" class="icon-btn" title="Logout">⏻</button>
+    </div>
+  </header>
+
+  <nav class="app-nav" id="appNav"></nav>
+
+  <main class="app-main" id="appMain"></main>
+</section>
+
+<!-- Notification dropdown -->
+<div id="notifPanel" class="notif-panel hidden">
+  <div class="notif-head">Notifications <button id="clearNotif" class="link-btn small">Clear</button></div>
+  <ul id="notifList"></ul>
+</div>
+
+<!-- Attachment preview modal -->
+<div id="attachModal" class="modal hidden">
+  <div class="modal-box">
+    <h3 id="attachTitle">Attachment</h3>
+    <div id="attachBody"></div>
+    <div class="modal-actions"><button type="button" id="attachClose" class="secondary-btn">Close</button></div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/waves.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

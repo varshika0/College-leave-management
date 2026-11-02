@@ -1,0 +1,14 @@
+# Freebuff Sites build output
+/freebuff-sites-build/
+
+# Freebuff project marker
+.freebuff/
+
+# Secrets & local env — never commit API keys
+.env
+.env.*
+*.dev.vars
+.DS_Store
+
+# Dependencies
+node_modules/
