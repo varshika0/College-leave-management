@@ -20,9 +20,9 @@ When a student uploads a medical certificate or OD letter, the system creates a 
 
 ## Team Members
 M.R.SRI VARSHIKA 44110806 https://github.com/varshika0
-S.SUBATHRA 44110819  
+S.SUBATHRA 44110819  https://github.com/Subathrasaravanvel
 
 ## Tech Stack
 Add your stack here (for example: Python, FastAPI, JavaScript, MySQL).
 
-Demo url: https://site-4cef1867d6fb4cca8fbe8a78d9bc8210.freebuff.page/
+Live url: https://site-4cef1867d6fb4cca8fbe8a78d9bc8210.freebuff.page/
